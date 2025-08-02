@@ -3,7 +3,6 @@ import { Box, Button, Typography, Alert } from '@mui/material';
 import { motion } from 'framer-motion';
 import { PlayArrow } from '@mui/icons-material';
 import { mockProductAnalysis } from '../utils/mockData';
-import AnalysisResults from './AnalysisResults';
 
 interface TestModeProps {
   onShowResults: (analysis: any) => void;

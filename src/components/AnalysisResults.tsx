@@ -4,7 +4,6 @@ import {
   Card,
   CardContent,
   Typography,
-  Grid,
   Chip,
   LinearProgress,
   Accordion,
@@ -86,43 +85,37 @@ const AnalysisResults: React.FC<AnalysisResultsProps> = ({ analysis }) => {
       {/* SEO Score and Metrics */}
       <Card sx={{ mb: 3, background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%)' }}>
         <CardContent>
-          <Grid container spacing={3}>
-            <Grid item xs={12} md={4}>
-              <Box textAlign="center">
-                <Typography variant="h4" color="primary" fontWeight="bold">
-                  {analysis.seoScore}/100
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  SEO Score
-                </Typography>
-                <LinearProgress
-                  variant="determinate"
-                  value={analysis.seoScore}
-                  sx={{ mt: 1, height: 8, borderRadius: 4 }}
-                />
-              </Box>
-            </Grid>
-            <Grid item xs={12} md={4}>
-              <Box textAlign="center">
-                <Typography variant="h4" color="secondary" fontWeight="bold">
-                  +{analysis.bsrPotential}%
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  BSR Potential
-                </Typography>
-              </Box>
-            </Grid>
-            <Grid item xs={12} md={4}>
-              <Box textAlign="center">
-                <Typography variant="h4" color="success.main" fontWeight="bold">
-                  {analysis.keywordOpportunities.length}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Keyword Opportunities
-                </Typography>
-              </Box>
-            </Grid>
-          </Grid>
+          <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' }, gap: 3 }}>
+            <Box textAlign="center">
+              <Typography variant="h4" color="primary" fontWeight="bold">
+                {analysis.seoScore}/100
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                SEO Score
+              </Typography>
+              <LinearProgress
+                variant="determinate"
+                value={analysis.seoScore}
+                sx={{ mt: 1, height: 8, borderRadius: 4 }}
+              />
+            </Box>
+            <Box textAlign="center">
+              <Typography variant="h4" color="secondary" fontWeight="bold">
+                +{analysis.bsrPotential}%
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                BSR Potential
+              </Typography>
+            </Box>
+            <Box textAlign="center">
+              <Typography variant="h4" color="success.main" fontWeight="bold">
+                {analysis.keywordOpportunities.length}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Keyword Opportunities
+              </Typography>
+            </Box>
+          </Box>
         </CardContent>
       </Card>
 
@@ -168,9 +161,9 @@ const AnalysisResults: React.FC<AnalysisResultsProps> = ({ analysis }) => {
                   />
                 </Box>
 
-                <Grid container spacing={3}>
+                <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: 'repeat(2, 1fr)' }, gap: 3 }}>
                   {/* Current Content */}
-                  <Grid item xs={12} md={6}>
+                  <Box>
                     <Typography variant="h6" gutterBottom color="text.secondary">
                       Current
                     </Typography>
@@ -197,10 +190,10 @@ const AnalysisResults: React.FC<AnalysisResultsProps> = ({ analysis }) => {
                         </IconButton>
                       </Tooltip>
                     </Box>
-                  </Grid>
+                  </Box>
 
                   {/* Suggested Content */}
-                  <Grid item xs={12} md={6}>
+                  <Box>
                     <Typography variant="h6" gutterBottom color="primary">
                       Suggested
                     </Typography>
@@ -227,8 +220,8 @@ const AnalysisResults: React.FC<AnalysisResultsProps> = ({ analysis }) => {
                         </IconButton>
                       </Tooltip>
                     </Box>
-                  </Grid>
-                </Grid>
+                  </Box>
+                </Box>
 
                 {/* Reasoning */}
                 <Box mt={2}>
